@@ -36,8 +36,8 @@ public class Lotto {
         return numbers;
     }
 
-    public long getMatchCount(Lotto lotto) {
-        return numbers.stream()
+    public int getMatchCount(Lotto lotto) {
+        return (int) numbers.stream()
                 .filter(lotto::contains)
                 .count();
     }
