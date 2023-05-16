@@ -14,7 +14,7 @@ public class WinNumbers {
         this.bonus = LottoNumber.of(bonus);
     }
 
-    public long getMatchCount(Lotto lotto) {
+    public int getMatchCount(Lotto lotto) {
         return lotto.getMatchCount(this.winNumbers);
     }
 
