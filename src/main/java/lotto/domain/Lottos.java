@@ -10,10 +10,6 @@ public class Lottos {
     private final List<Lotto> lottos;
     private final int autoLottoCount;
 
-    public Lottos(int money) {
-        this(money, new ArrayList<>());
-    }
-
     public Lottos(List<Lotto> manualLottos) {
         this(LOTTO_PRICE * manualLottos.size(), manualLottos);
     }

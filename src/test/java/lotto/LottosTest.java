@@ -7,6 +7,7 @@ import lotto.domain.WinNumbers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -18,7 +19,7 @@ public class LottosTest {
     @Test
     @DisplayName("구입 금액은 로또 한 장 가격의 배수여야 한다")
     public void invalidMoney() {
-        assertThatIllegalArgumentException().isThrownBy(() -> new Lottos(14001));
+        assertThatIllegalArgumentException().isThrownBy(() -> new Lottos(14001, new ArrayList<>()));
     }
 
     @Test
