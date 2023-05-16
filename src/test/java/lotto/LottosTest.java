@@ -64,17 +64,26 @@ public class LottosTest {
     }
 
     @Test
-    @DisplayName("이득인지 손해인지 확인한다")
-    public void gainOrLoss() {
+    @DisplayName("이득이다")
+    public void gain() {
         Lotto lotto1 = new Lotto(Set.of(1, 3, 5, 14, 22, 45));
         Lotto lotto2 = new Lotto(Set.of(3, 5, 11, 16, 32, 38));
         Lotto lotto3 = new Lotto(Set.of(1, 2, 3, 4, 7, 8));
         Lotto lotto4 = new Lotto(Set.of(1, 2, 3, 4, 5, 8));
         Lottos lottos = new Lottos(List.of(lotto1, lotto2, lotto3, lotto4));
         WinNumbers winNumbers = new WinNumbers(Set.of(1, 2, 3, 4, 5, 6), 7);
-        assertAll(
-                () -> assertThat(lottos.isGain(winNumbers)).isTrue(),
-                () -> assertThat(lottos.isLoss(winNumbers)).isFalse()
-        );
+        assertThat(lottos.isGain(winNumbers)).isTrue();
+    }
+
+    @Test
+    @DisplayName("손해다")
+    public void loss() {
+        Lotto lotto1 = new Lotto(Set.of(1, 3, 15, 14, 22, 45));
+        Lotto lotto2 = new Lotto(Set.of(3, 5, 11, 16, 32, 38));
+        Lotto lotto3 = new Lotto(Set.of(1, 2, 13, 14, 17, 18));
+        Lotto lotto4 = new Lotto(Set.of(1, 2, 13, 14, 15, 18));
+        Lottos lottos = new Lottos(List.of(lotto1, lotto2, lotto3, lotto4));
+        WinNumbers winNumbers = new WinNumbers(Set.of(1, 2, 3, 4, 5, 6), 7);
+        assertThat(lottos.isLoss(winNumbers)).isTrue();
     }
 }
